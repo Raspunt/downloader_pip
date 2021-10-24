@@ -1,13 +1,22 @@
 {
     "lib_name": [
-        " flask  render_template ",
-        " django ",
-        " numpy",
-        " aiogram ",
-        " cv2",
-        " pandas",
-        " PyTorch",
-        " Keras",
-        " Theano"
+        "flask",
+        "django",
+        "numpy",
+        "aiogram",
+        "cv2",
+        "pandas",
+        "PyTorch",
+        "Keras",
+        "Theano",
+        "lruttl"
+    ],
+    "pip_list": [
+        [
+            "pip"
+        ],
+        [
+            "setuptools"
+        ]
     ]
 }
