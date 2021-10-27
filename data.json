@@ -1,22 +1,53 @@
 {
     "lib_name": [
         "flask",
-        "django",
-        "numpy",
-        "aiogram",
-        "cv2",
-        "pandas",
-        "PyTorch",
-        "Keras",
-        "Theano",
-        "lruttl"
+        "cv2"
     ],
     "pip_list": [
+        [
+            "beautifulsoup4"
+        ],
+        [
+            "certifi"
+        ],
+        [
+            "charset"
+        ],
+        [
+            "click"
+        ],
+        [
+            "Flask"
+        ],
+        [
+            "idna"
+        ],
+        [
+            "itsdangerous"
+        ],
+        [
+            "Jinja2"
+        ],
+        [
+            "MarkupSafe"
+        ],
         [
             "pip"
         ],
         [
+            "requests"
+        ],
+        [
             "setuptools"
+        ],
+        [
+            "soupsieve"
+        ],
+        [
+            "urllib3"
+        ],
+        [
+            "Werkzeug"
         ]
     ]
 }

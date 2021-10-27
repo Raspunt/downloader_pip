@@ -5,23 +5,35 @@ import re
 class downloader():
 
     jname = "data.json"
-    jsonFile = open(jname,"r+")
-    pipLibs = {"lib_name":[],"pip_list":[]}
+    jsonFile = open(jname,"w")
+    
+    pipLibs = {"lib_name":[],
+    "pip_list":[],
+    }
     not_installed_libs = []
 
     
 
 
     def pip_install(self,command):
-        text_command = f"pip install {command}"
+        text_command = f"pip install {command}  &> com_text.txt"
 
         print(text_command)
 
         os.system(text_command)
+        
+        com_text = open("com_text.txt","r")
 
-        self.add_pip_list()
-        if command not in self.get_JsonData()["pip_list"]:
-            self.not_installed_libs.append(command)
+        lines = com_text.readlines()
+ 
+        for line in lines:
+
+            if "ERROR" in line:
+                self.not_installed_libs.append(command)
+                break
+
+ 
+
 
         
 
@@ -65,7 +77,7 @@ class downloader():
 
 
     def get_JsonData(self):
-        
+        self.jsonFile.close()
         jfile = open(self.jname,"r") 
         data = json.load(jfile)
 
@@ -73,16 +85,23 @@ class downloader():
 
     def pip_install_all(self):
 
+        
         for f in self.get_JsonData()["lib_name"]:
             self.pip_install(f)
 
-        print("--- --- --- --- ---")
+
+        ter_col = os.get_terminal_size()
+
+        print(ter_col)
+        
+
+        for i in range(ter_col.columns):print("-",end="") 
         print("    --- --- ---    ")
         print("    --- --- ---    ")
         print("    --- --- ---    ")
         print("    --- --- ---    ")
         print("    --- --- ---    ")
-        print("--- --- --- --- ---")
+        for i in range(ter_col.columns):print("-",end="")
 
         print(self.not_installed_libs)
 
